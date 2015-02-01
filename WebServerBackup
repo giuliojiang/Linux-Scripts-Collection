@@ -1,0 +1,17 @@
+DATE=$(date +%Y%m%d)
+OUTPUT=/root/out
+
+cd /root
+mysqldump -u root -p --all-databases > ${DATE}db.sql
+tar -zvcf ${DATE}db.tgz ${DATE}db.sql
+
+cd /var
+tar -zvcf /root/${DATE}www.tgz www
+
+cd /etc/apache2
+tar -zvcf /root/${DATE}etc.tgz sites-enabled
+
+cd /root
+mv ${DATE}db.tgz ${OUTPUT}/${DATE}db.tgz
+mv ${DATE}www.tgz ${OUTPUT}/${DATE}www.tgz
+mv ${DATE}etc.tgz ${OUTPUT}/${DATE}etc.tgz
