@@ -23,6 +23,11 @@ def main(argv=None):
                         help='Output directory',
                         default='/var/www/'
                         )
+                        
+    parser.add_argument('--url',
+                        help='Deploy server',
+                        required=True
+                        )
 
     args = parser.parse_args(argv)
 
@@ -44,6 +49,7 @@ def main(argv=None):
     # .........................................................................
     # Overwrite the address file
     filename = args.output + os.sep + 'BOMBERMAN' + os.sep + 'server_url.js'
+    subprocess.call('cat "socketURL = \'ws://' + args.url + ':1080\';" > ' + filename)
     subprocess.call(['wget', 'https://github.com/giuliojiang/Linux-Scripts-Collection/raw/master/Bomberman/url', '-O', filename])
     
     # .........................................................................
