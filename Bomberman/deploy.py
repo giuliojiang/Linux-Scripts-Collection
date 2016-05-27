@@ -2,8 +2,6 @@
 
 import subprocess
 import sys
-import colors
-import random
 import os
 import argparse
 
