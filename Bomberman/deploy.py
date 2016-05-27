@@ -58,8 +58,21 @@ def main(argv=None):
 
     # .........................................................................
     # Compile the server
+    old_path = os.path.abspath(os.getcwd())
     os.chdir(cloned_directory + os.sep + 'server');
     subprocess.call(['make']);
+    
+    # .........................................................................
+    # Run server generation
+    os.chdir(old_path)
+    run_server_name = 'run_server.sh'
+    run_server = open(run_server_name, 'w')
+    run_server.write('#! /bin/bash\n')
+    run_server.write('cd ' + cloned_directory + os.sep + 'server\n')
+    run_server.write('make run\n')
+    run_server.close()
+    
+    subprocess.call(['chmod', '+x', run_server_name])
     
 # ==============================================================================
 # call main if executed as script
