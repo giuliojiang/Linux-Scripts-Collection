@@ -21,7 +21,8 @@ def main(argv=None):
 
     parser.add_argument('--output',
                         help='Output directory',
-                        default='/var/www/'
+                        default='/var/www/',
+                        required=True
                         )
                         
     parser.add_argument('--url',
@@ -49,7 +50,11 @@ def main(argv=None):
     # .........................................................................
     # Overwrite the address file
     filename = args.output + os.sep + 'BOMBERMAN' + os.sep + 'server_url.js'
-    subprocess.call('cat "socketURL = \'ws://' + args.url + ':1080\';" > ' + filename, shell=True)
+    openfile = open(filename, 'w')
+    openfile.write("socketURL = 'ws://")
+    openfile.write(args.url)
+    openfile.write(":1080';\n")
+    openfile.close()
 
     # .........................................................................
     # Compile the server
