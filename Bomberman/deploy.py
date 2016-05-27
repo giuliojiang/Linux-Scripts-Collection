@@ -47,7 +47,7 @@ def main(argv=None):
     
     # .........................................................................
     # Compile the server
-    os.chdir(cloned_directory + os.sep + server);
+    os.chdir(cloned_directory + os.sep + 'server');
     subprocess.call(['make']);
     
 # ==============================================================================
