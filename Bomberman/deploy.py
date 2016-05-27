@@ -49,9 +49,8 @@ def main(argv=None):
     # .........................................................................
     # Overwrite the address file
     filename = args.output + os.sep + 'BOMBERMAN' + os.sep + 'server_url.js'
-    subprocess.call('cat "socketURL = \'ws://' + args.url + ':1080\';" > ' + filename)
-    subprocess.call(['wget', 'https://github.com/giuliojiang/Linux-Scripts-Collection/raw/master/Bomberman/url', '-O', filename])
-    
+    subprocess.call('cat "socketURL = \'ws://' + args.url + ':1080\';" > ' + filename, shell=True)
+
     # .........................................................................
     # Compile the server
     os.chdir(cloned_directory + os.sep + 'server');
