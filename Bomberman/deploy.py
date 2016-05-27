@@ -31,6 +31,7 @@ def main(argv=None):
     # .........................................................................
     # Clean out directory
     subprocess.call(['rm', '-rf', cloned_directory])
+    subprocess.call(['rm', '-rf', args.output + os.sep + 'BOMBERMAN'])
     
     # .........................................................................
     # Clone from git
@@ -43,7 +44,7 @@ def main(argv=None):
     # .........................................................................
     # Overwrite the address file
     filename = args.output + os.sep + 'BOMBERMAN' + os.sep + 'server_url.js'
-    content = "socketURL = 'ws://webapps.jstudios.ovh:1080';"
+    subprocess.call(['wget', 'https://github.com/giuliojiang/Linux-Scripts-Collection/raw/master/Bomberman/url', '-O', filename])
     
     # .........................................................................
     # Compile the server
