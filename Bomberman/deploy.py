@@ -45,7 +45,7 @@ def main(argv=None):
     
     # .........................................................................
     # Move client to deploy folder
-    subprocess.call(['mv', cloned_directory + os.sep + 'themestruck-harmony-admin-bootstrap-theme', args.output + os.sep + 'BOMBERMAN'])
+    subprocess.call(['mv', cloned_directory + os.sep + 'client', args.output + os.sep + 'BOMBERMAN'])
     
     # .........................................................................
     # Overwrite the address file
