@@ -69,7 +69,7 @@ def main(argv=None):
     run_server = open(run_server_name, 'w')
     run_server.write('#! /bin/bash\n')
     run_server.write('cd ' + cloned_directory + os.sep + 'server\n')
-    run_server.write('make run\n')
+    run_server.write('./start_server.sh sql\n')
     run_server.close()
     
     subprocess.call(['chmod', '+x', run_server_name])
