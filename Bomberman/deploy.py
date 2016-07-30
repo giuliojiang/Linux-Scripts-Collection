@@ -7,7 +7,7 @@ import argparse
 
 def main(argv=None):
     
-    git_source = 'https://gitlab.doc.ic.ac.uk/WebApps-Group-12/BomberMan.git'
+    git_source = 'https://github.com/giuliojiang/PrecursorsBombs.git'
     cloned_directory = 'out'
     
     # .........................................................................
