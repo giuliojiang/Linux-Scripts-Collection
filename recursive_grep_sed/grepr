@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+import subprocess
+import argparse
+import sys
+
+parser = argparse.ArgumentParser()
+    
+parser.add_argument('match',
+                    help='The text to be matched'
+)
+
+args = parser.parse_args()
+
+cmd = []
+cmd.append('grep')
+cmd.append('-H')
+cmd.append('-r')
+cmd.append(args.match)
+
+sys.exit(subprocess.call(cmd, shell=False))
