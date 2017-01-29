@@ -4,18 +4,19 @@ import subprocess
 import argparse
 import sys
 
-parser = argparse.ArgumentParser()
-    
-parser.add_argument('match',
-                    help='The text to be matched'
-)
 
-args = parser.parse_args()
+print('Enter text to find:')
+match = raw_input()
+
+def escape(s):
+    return s.replace("\\", "\\\\").replace("/", "\\/")
+
+fmatch = escape(match)
 
 cmd = []
 cmd.append('grep')
 cmd.append('-H')
 cmd.append('-r')
-cmd.append(args.match)
+cmd.append(fmatch)
 
 sys.exit(subprocess.call(cmd, shell=False))
