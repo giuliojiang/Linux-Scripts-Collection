@@ -15,6 +15,7 @@ fmatch = escape(match)
 
 cmd = []
 cmd.append('grep')
+cmd.append('-F')
 cmd.append('-H')
 cmd.append('-r')
 cmd.append(fmatch)
